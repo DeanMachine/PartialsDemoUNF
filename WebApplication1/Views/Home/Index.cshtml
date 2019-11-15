@@ -1,0 +1,15 @@
+﻿@model SampleViewModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<ol>
+@foreach (var person in Model.People)
+{
+    <li>
+        <h2>@person.FirstName @person.LastName</h2>
+
+        @await Html.PartialAsync("_FamilyMemberTable", person.FamilyMembers)
+    </li>
+}
+</ol>
